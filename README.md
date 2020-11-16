@@ -1,4 +1,4 @@
-#nestjs-graphql-e2e
+# nestjs-graphql-e2e
 
 **A approach to E2E tests**
 
