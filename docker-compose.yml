@@ -1,12 +1,27 @@
 version: '3.9'
 
 services:
-  database:
+  db:
     image: ${DB_DOCKER_IMAGE}:${DB_DOCKER_IMAGE_TAG}
+    container_name: db
     ports:
       - ${DB_PORT}:${DB_DEFAULT_PORT}
     volumes:
-      - mongodb-data-container:/data/db
+      - db-volume:/data/db
+
+  db-client:
+    image: ${DB_CLIENT_IMAGE}:${DB_CLIENT_IMAGE_TAG}
+    container_name: db-client
+    ports:
+      - ${DB_CLIENT_PORT}:${DB_CLIENT_DEFAULT_PORT}
+    links:
+      - db
+    networks:
+      - db-network
+
+networks:
+  db-network:
+    driver: bridge
 
 volumes:
-  mongodb-data-container:
+  db-volume:
