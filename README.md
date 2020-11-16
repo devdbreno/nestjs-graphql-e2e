@@ -1,4 +1,6 @@
-# NestJS GraphQL Application
+#nestjs-graphql-e2e
+
+**A approach to E2E tests**
 
 ## Installation
 
